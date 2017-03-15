@@ -12,6 +12,8 @@
 		C0F7F8011E782FD100C877CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F7F7FF1E782FD100C877CC /* Main.storyboard */; };
 		C0F7F8031E782FD100C877CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F7F8021E782FD100C877CC /* Assets.xcassets */; };
 		C0F7F8061E782FD100C877CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F7F8041E782FD100C877CC /* LaunchScreen.storyboard */; };
+		C0F7F8101E7830AF00C877CC /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7F80F1E7830AF00C877CC /* ClockView.swift */; };
+		C0F7F8121E7830B700C877CC /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7F8111E7830B700C877CC /* Time.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C0F7F8021E782FD100C877CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0F7F8051E782FD100C877CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0F7F8071E782FD100C877CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0F7F80F1E7830AF00C877CC /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		C0F7F8111E7830B700C877CC /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +58,11 @@
 		C0F7F7FA1E782FD100C877CC /* DraggleClock */ = {
 			isa = PBXGroup;
 			children = (
-				C0F7F7FB1E782FD100C877CC /* AppDelegate.swift */,
-				C0F7F7FD1E782FD100C877CC /* ViewController.swift */,
 				C0F7F7FF1E782FD100C877CC /* Main.storyboard */,
+				C0F7F7FD1E782FD100C877CC /* ViewController.swift */,
+				C0F7F80F1E7830AF00C877CC /* ClockView.swift */,
+				C0F7F8111E7830B700C877CC /* Time.swift */,
+				C0F7F7FB1E782FD100C877CC /* AppDelegate.swift */,
 				C0F7F8021E782FD100C877CC /* Assets.xcassets */,
 				C0F7F8041E782FD100C877CC /* LaunchScreen.storyboard */,
 				C0F7F8071E782FD100C877CC /* Info.plist */,
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F7F8101E7830AF00C877CC /* ClockView.swift in Sources */,
+				C0F7F8121E7830B700C877CC /* Time.swift in Sources */,
 				C0F7F7FE1E782FD100C877CC /* ViewController.swift in Sources */,
 				C0F7F7FC1E782FD100C877CC /* AppDelegate.swift in Sources */,
 			);
