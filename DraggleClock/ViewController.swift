@@ -18,17 +18,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         someTime = Time(hour: 2, minute: 30)
         clockView.time = someTime ?? Time(hour: 3, minute: 1)
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.someTime?.tick()
             self.clockView.time = self.someTime ?? Time(hour: 3, minute: 1)
         })
+        
+        //gesture recognizers
+        //pinch to zoom clock
+        let zoomRecognizer = UIPinchGestureRecognizer(target: clockView, action: #selector(ClockView.zoomClock(recognizer:)))
+        clockView.addGestureRecognizer(zoomRecognizer)
+        //pan to move hand
+        let handDragRecognizer = UIPanGestureRecognizer(target: clockView, action: #selector(ClockView.dragHand(recognizer:)))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    //
 
 }
 

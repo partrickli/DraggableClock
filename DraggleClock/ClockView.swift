@@ -13,7 +13,7 @@ public class ClockView: UIView {
     }
     public static let RadianPerAngle = CGFloat.pi / 180
     
-    public var time = Time(hour: 0, minute: 0) {
+    public var time = Time(hour: 2, minute: 0) {
         didSet {
             setNeedsDisplay()
         }
@@ -85,6 +85,30 @@ public class ClockView: UIView {
 //        UIColor.blue.set()
 //        path.stroke()
 //    }
+    
+    //clock zooming handler
+    func zoomClock(recognizer: UIPinchGestureRecognizer) {
+        switch recognizer.state {
+        case .changed:
+            print("zoom clock")
+            clockRadius *= recognizer.scale
+            recognizer.scale = 1
+            print(recognizer.scale)
+        default:
+            break
+        }
+    }
+    
+    //clock hand drag hanler
+    func dragHand(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .changed:
+            print("drag hand")
+            
+        default:
+            break
+        }
+    }
 
 }
 
