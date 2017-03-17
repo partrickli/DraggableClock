@@ -10,7 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
    
-    var someTime: Time?
+    var someTime: Time? {
+        didSet {
+            timeLabel.text = someTime?.description
+        }
+    }
     
     @IBOutlet weak var clockView: ClockView! {
         didSet {
@@ -23,6 +27,8 @@ class ViewController: UIViewController {
             clockView.addGestureRecognizer(handDragRecognizer)
         }
     }
+    
+    @IBOutlet weak var timeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

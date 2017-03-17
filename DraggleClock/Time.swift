@@ -20,3 +20,9 @@ public struct Time {
         }
     }
 }
+
+extension Time: CustomStringConvertible {
+    public var description: String {
+        return "\(hour) : \(minute)"
+    }
+}
