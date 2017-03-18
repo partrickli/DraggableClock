@@ -124,52 +124,25 @@ public class ClockView: UIView {
         }
     }
     
-    //clock hand drag hanler
-    func dragHand(recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .changed:
-            
-            //drag only finger on close enough to clock hand
-            let focus = recognizer.location(in: self)
-//            guard case minuteHand.rangeX = focus.x, case minuteHand.rangeY = focus.y else {
-//                print("out of hand bounds")
-//                break
-//            }
-
-            let distanceToMinuteHand = focus.distance(to: Line(start: minuteHand.start, end: minuteHand.end))
-            guard distanceToMinuteHand < minuteHand.length / 10 else {
-                print("not close enough to hand")
-                break
-            }
-            let translation = recognizer.translation(in: self)
-            let orthogonalOfHand = (minuteHand.end - minuteHand.start).rotated(at: .pi / 2)
-            let timeDragRadian = (translation - CGPoint.zero).project(on: orthogonalOfHand) / (focus - center).magnitude
-            minuteHand.radian -= timeDragRadian
-            print("time drag radian: \(timeDragRadian)")
-            
-            recognizer.setTranslation(CGPoint.zero, in: self)
-        default:
-            break
+    //
+    //            guard case minuteHand.rangeX = focus.x, case minuteHand.rangeY = focus.y else {
+    //                print("out of hand bounds")
+    //                break
+    //            }
+    func timeShifted(for recognizer: UIPanGestureRecognizer) -> Time {
+        let focus = recognizer.location(in: self)
+        let distanceToMinuteHand = focus.distance(to: Line(start: minuteHand.start, end: minuteHand.end))
+        guard distanceToMinuteHand < minuteHand.length / 5 else {
+            print("not close enough to hand")
+            return Time(hour: 0, minute: 0)
         }
+        let translation = recognizer.translation(in: self)
+        let orthogonalOfHand = (minuteHand.end - minuteHand.start).rotated(at: .pi / 2)
+        let timeDragRadian = -(translation - CGPoint.zero).project(on: orthogonalOfHand) / (focus - center).magnitude
+        return Time(hour: 0, minute: Int(timeDragRadian / (Constants.MinuteHandAnglePerMinute * Constants.RadianPerAngle)))
     }
 
 }
 
-extension ClockView: CustomPlaygroundQuickLookable {
-    public var customPlaygroundQuickLook: PlaygroundQuickLook {
-        return .view(self)
-        
-//        let path = UIBezierPath()
-//        path.move(to: hourHand.end)
-//        path.addLine(to: hourHand.start)
-//        path.addLine(to: minuteHand.end)
-//        path.lineWidth = 3
-//        return .bezierPath(path)
-        
-        
-//        let currentAngle = minuteHand.radian / Clock.RadianPerAngle
-//        return .text("angle \(currentAngle)")
-    }
-}
 
 

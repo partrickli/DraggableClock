@@ -55,7 +55,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="clockView" destination="8bC-Xf-vdC" id="hd1-2c-eBN"/>
+                        <outlet property="clockView" destination="nAo-Gx-kth" id="GpD-PZ-tmx"/>
                         <outlet property="timeLabel" destination="Kqu-TO-aVI" id="avT-hm-Eat"/>
                     </connections>
                 </viewController>

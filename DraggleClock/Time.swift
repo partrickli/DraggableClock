@@ -19,6 +19,14 @@ public struct Time {
             hour += 1
         }
     }
+    
+    static func + (left: Time, right: Time) -> Time {
+        if left.minute + right.minute < 60 {
+            return Time(hour: left.hour + right.hour, minute: left.minute + right.minute)
+        } else {
+            return Time(hour: left.hour + right.hour + 1, minute: left.minute + right.minute - 60)
+        }
+    }
 }
 
 extension Time: CustomStringConvertible {

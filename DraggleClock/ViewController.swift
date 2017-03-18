@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var someTime: Time? {
         didSet {
             timeLabel.text = someTime?.description
+            clockView.time = someTime ?? Time(hour: 0, minute: 0)
         }
     }
     
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
             let zoomRecognizer = UIPinchGestureRecognizer(target: clockView, action: #selector(ClockView.zoomClock(recognizer:)))
             clockView.addGestureRecognizer(zoomRecognizer)
             //pan to move hand
-            let handDragRecognizer = UIPanGestureRecognizer(target: clockView, action: #selector(ClockView.dragHand(recognizer:)))
+            let handDragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ViewController.dragHand(recognizer:)))
             clockView.addGestureRecognizer(handDragRecognizer)
         }
     }
@@ -33,17 +34,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         someTime = Time(hour: 2, minute: 30)
-        clockView.time = someTime ?? Time(hour: 3, minute: 1)
         
 //        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
 //            self.someTime?.tick()
-//            self.clockView.time = self.someTime ?? Time(hour: 3, minute: 1)
 //        })
         
 
     }
 
     //
+    //clock hand drag hanler
+    func dragHand(recognizer: UIPanGestureRecognizer) {
+        print("pan gesture recognizer triggered !")
+        switch recognizer.state {
+        case .changed:
+            
+            //drag only finger on close enough to clock hand
+            let timeShift = clockView.timeShifted(for: recognizer)
+            print("time shift: \(timeShift)")
+            someTime = someTime! + timeShift
+            recognizer.setTranslation(CGPoint.zero, in: clockView)
+        default:
+            break
+        }
+    }
+
 
 }
 
