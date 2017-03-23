@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
    
-    var someTime: Time? {
+    var currentTime: Time = Time(hour: 0, minute: 0) {
         didSet {
-            timeLabel.text = someTime?.description
-            clockView.time = someTime ?? Time(hour: 0, minute: 0)
+//            timeLabel.text = currentTime.description
+//            clockView.hour = currentTime.hour
+//            clockView.minute = currentTime.minute
         }
     }
     
@@ -33,13 +34,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        someTime = Time(hour: 2, minute: 30)
+        currentTime = Time(hour: 2, minute: 30)
         
 //        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
-//            self.someTime?.tick()
+//            self.currentTime.tick()
 //        })
-        
-
     }
 
     //
@@ -50,9 +49,19 @@ class ViewController: UIViewController {
         case .changed:
             
             //drag only finger on close enough to clock hand
-            let timeShift = clockView.timeShifted(for: recognizer)
-            print("time shift: \(timeShift)")
-            someTime = someTime! + timeShift
+
+            let panStart = recognizer.location(in: clockView)
+            let translation = recognizer.translation(in: clockView)
+            let draggedEnd = CGPoint(x: panStart.x + translation.x, y: panStart.y + translation.y)
+            let ratio = clockView.minuteHand.length / (draggedEnd - clockView.center).magnitude
+            let vector = draggedEnd - clockView.center
+            let enlargedVector = CGVector(dx: vector.dx * ratio, dy: vector.dy * ratio)
+            clockView.minuteHand.end = CGPoint(x: clockView.center.x + enlargedVector.dx, y: clockView.center.y + enlargedVector.dy)
+            //
+            currentTime.hour = clockView.hour
+            currentTime.minute = clockView.minute
+
+
             recognizer.setTranslation(CGPoint.zero, in: clockView)
         default:
             break

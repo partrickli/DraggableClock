@@ -1,8 +1,6 @@
 import UIKit
 
-//customizing operator
-
-
+//vector calculation utilization
 
 public extension CGPoint {
     
@@ -28,7 +26,7 @@ public struct Line {
     }
 }
 
-
+//vector dot product operator
 infix operator ⋅
 
 public extension CGVector {
