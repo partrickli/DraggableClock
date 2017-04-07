@@ -6,3 +6,5 @@
 
 * caller only once (by contrast to viewDidLoad)
 * immediately after view set, work intime. 
+
+## Clock Control
