@@ -12,9 +12,12 @@
 		C0F7F8011E782FD100C877CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F7F7FF1E782FD100C877CC /* Main.storyboard */; };
 		C0F7F8031E782FD100C877CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F7F8021E782FD100C877CC /* Assets.xcassets */; };
 		C0F7F8061E782FD100C877CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F7F8041E782FD100C877CC /* LaunchScreen.storyboard */; };
-		C0F7F8101E7830AF00C877CC /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7F80F1E7830AF00C877CC /* ClockView.swift */; };
 		C0F7F8121E7830B700C877CC /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7F8111E7830B700C877CC /* Time.swift */; };
-		C0F7F8141E7A6BA200C877CC /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7F8131E7A6BA100C877CC /* Vector.swift */; };
+		C0FABA4D1E97217700CA52E7 /* ClockControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FABA4C1E97217700CA52E7 /* ClockControl.swift */; };
+		C0FABA521E9725DB00CA52E7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FABA4E1E9725DB00CA52E7 /* Renderer.swift */; };
+		C0FABA531E9725DB00CA52E7 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FABA4F1E9725DB00CA52E7 /* Shapes.swift */; };
+		C0FABA541E9725DB00CA52E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FABA501E9725DB00CA52E7 /* Utils.swift */; };
+		C0FABA551E9725DB00CA52E7 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FABA511E9725DB00CA52E7 /* Vector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +28,12 @@
 		C0F7F8021E782FD100C877CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0F7F8051E782FD100C877CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0F7F8071E782FD100C877CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0F7F80F1E7830AF00C877CC /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C0F7F8111E7830B700C877CC /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		C0F7F8131E7A6BA100C877CC /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		C0FABA4C1E97217700CA52E7 /* ClockControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockControl.swift; sourceTree = "<group>"; };
+		C0FABA4E1E9725DB00CA52E7 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		C0FABA4F1E9725DB00CA52E7 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		C0FABA501E9725DB00CA52E7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C0FABA511E9725DB00CA52E7 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0CC453A1E8412BC005978B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7F7FB1E782FD100C877CC /* AppDelegate.swift */,
+				C0F7F8021E782FD100C877CC /* Assets.xcassets */,
+				C0F7F8041E782FD100C877CC /* LaunchScreen.storyboard */,
+				C0F7F8071E782FD100C877CC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C0F7F7EF1E782FD000C877CC = {
 			isa = PBXGroup;
 			children = (
@@ -64,10 +81,7 @@
 				C0F7F7FD1E782FD100C877CC /* ViewController.swift */,
 				C0F7F8161E7A6BD000C877CC /* Model */,
 				C0F7F8151E7A6BBD00C877CC /* View */,
-				C0F7F7FB1E782FD100C877CC /* AppDelegate.swift */,
-				C0F7F8021E782FD100C877CC /* Assets.xcassets */,
-				C0F7F8041E782FD100C877CC /* LaunchScreen.storyboard */,
-				C0F7F8071E782FD100C877CC /* Info.plist */,
+				C0CC453A1E8412BC005978B7 /* Supporting Files */,
 			);
 			path = DraggleClock;
 			sourceTree = "<group>";
@@ -75,8 +89,11 @@
 		C0F7F8151E7A6BBD00C877CC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0F7F8131E7A6BA100C877CC /* Vector.swift */,
-				C0F7F80F1E7830AF00C877CC /* ClockView.swift */,
+				C0FABA4C1E97217700CA52E7 /* ClockControl.swift */,
+				C0FABA4E1E9725DB00CA52E7 /* Renderer.swift */,
+				C0FABA4F1E9725DB00CA52E7 /* Shapes.swift */,
+				C0FABA501E9725DB00CA52E7 /* Utils.swift */,
+				C0FABA511E9725DB00CA52E7 /* Vector.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -162,11 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0F7F8101E7830AF00C877CC /* ClockView.swift in Sources */,
+				C0FABA531E9725DB00CA52E7 /* Shapes.swift in Sources */,
+				C0FABA4D1E97217700CA52E7 /* ClockControl.swift in Sources */,
 				C0F7F8121E7830B700C877CC /* Time.swift in Sources */,
-				C0F7F8141E7A6BA200C877CC /* Vector.swift in Sources */,
 				C0F7F7FE1E782FD100C877CC /* ViewController.swift in Sources */,
+				C0FABA521E9725DB00CA52E7 /* Renderer.swift in Sources */,
 				C0F7F7FC1E782FD100C877CC /* AppDelegate.swift in Sources */,
+				C0FABA551E9725DB00CA52E7 /* Vector.swift in Sources */,
+				C0FABA541E9725DB00CA52E7 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +348,7 @@
 				C0F7F80C1E782FD100C877CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
